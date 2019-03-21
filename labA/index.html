@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Laboratorio A</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="http://localhost:8098"></script> -->
+</head>
+<body>
+    <h1>Laboratorio 00 del papu rey de la jb</h1>
+
+    <div id="app">
+        {{ message }}
+        <h3>mi nombre es {{name}} y soy de {{city}}</h3>
+        <h5>{{numberOfSomething(numberOfThings,'pokemon')}}{{thing}}</h5>
+        <p>Días de la semana</p>
+        <ul>
+            <li v-for='day in daysOfTheWeek'>
+                {{day}}
+            </li>
+        </ul>
+        <p>aeropuertos</p>
+        <div v-for='airport in airports'>
+            <span>{{airport.code}} </span>
+            <span>{{airport.city}}  </span>   
+            <span v-show="airport.country === 'Mexico'">{{airport.country}}</span>
+        </div>
+        <p>fin de semana</p>
+        <ul>
+            <li v-for="day in daysOfTheWeek">
+                <span v-if="day === 'sabado' || day === 'domingo'">{{day}} es fin de semana</span>
+                <span v-else-if="day === 'lunes'">{{day}} es el inicio de semana</span>
+                <span v-else>{{day}} no es fin de semana</span>
+            </li>
+        </ul>
+        <br>
+        <button v-on:click="showAlert('obligame prro')">show alert 1</button>
+        <button @click="showAlert('huevos prro')">show alert 2</button>
+        <button @click="showAlert2($event)">show alert 3</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
